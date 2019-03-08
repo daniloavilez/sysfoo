@@ -36,12 +36,11 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
+          
+      - run: mvn package
       
-      - mvn package:
-          override:
-            - mvn package
 
-      - mv target/*.war $CIRCLE_ARTIFACTS/:
+      - store_artifacts:
         - mv target/*.war $CIRCLE_ARTIFACTS/
 
       # run tests!
