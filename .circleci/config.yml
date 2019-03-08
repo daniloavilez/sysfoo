@@ -41,7 +41,7 @@ jobs:
       
 
       - store_artifacts:
-          path: target/*.war
+          path: target/sysfoo.war
 
       # run tests!
       - run: mvn integration-test
